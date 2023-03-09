@@ -10,7 +10,8 @@
             string resposta = "";
 
             double resultado = 0;
-
+            //teste
+           
             List<string> Contas = new List<string>();
             List<double> Resultados = new List<double>();
             Console.WriteLine("Calculdadora diferenciada\n------------------");
