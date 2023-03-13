@@ -10,27 +10,49 @@
             string resposta = "";
 
             double resultado = 0;
-            //teste
+            //test
            
             List<string> Contas = new List<string>();
-            List<double> Resultados = new List<double>();
+            List<double> Resultado = new List<double>();
             Console.WriteLine("Calculdadora diferenciada\n------------------");
             while (resposta.ToUpper() != sair)
             {
                 Console.WriteLine("------------------");
 
 
-                console.writeline("operações: + | - | * | / |");
-                string operacao = console.readline();
+                Console.WriteLine("operações: + | - | * | / | H para Histórico | ");
+                string Operacao = Console.ReadLine();
 
-                if (Operacao != "+" &&  Operacao != "-" && Operacao != "*" && Operacao != "/")
+                if (Operacao != "+" &&  Operacao != "-" && Operacao != "*" && Operacao != "/" && Operacao != "h" && Operacao != "H")
                 {
                     Console.WriteLine("Erro: Operação inválida");
                     continue;
                 }
 
+                if (Operacao.ToUpper() == "H")
+                {
+                    if (Contas.Count() == 0)
+                    {
+                        Console.WriteLine("Sem Histórico ainda... ");
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Histórico: ");
+                        foreach (var item in Contas)
+                        {
 
-                
+                            Console.WriteLine(item);
+
+
+                        }
+
+                        Console.WriteLine("Número de operaçoes: " + Contas.Count());
+                        Console.ReadLine();
+                        continue;
+                    }
+                    
+                }
 
                 Console.WriteLine("Digite o primeiro Número:\n");
 
@@ -69,28 +91,18 @@
                     resultado = pNumero1 / pNumero2;
                     Console.WriteLine("Resultado: " + resultado);
                 }
+                
 
-                string conta  = Convert.ToString(pNumero1) + " " + Operacao + " " + Convert.ToString(pNumero2) + " = " + Convert.ToString(Math.Round(resultado,2));
-                
-                
-                Resultados.Add(resultado);
+                string conta  = Convert.ToString(pNumero1) + " " + Operacao + " " + Convert.ToString(pNumero2) + " = " + Convert.ToString(Math.Round(resultado,2));             
                 Contas.Add(conta);
+                Resultado.Add(resultado);
 
 
 
                 Console.WriteLine("Sair S/N");
                 resposta = Console.ReadLine();
             }
-            Console.WriteLine("Histórico: ");
-            foreach (var item in Contas)
-            {
-                
-              Console.WriteLine(item);
-                
-
-            }
             
-            Console.WriteLine("Número de operaçoes: " + Resultados.Count());
             Console.ReadLine();
         }
     }
